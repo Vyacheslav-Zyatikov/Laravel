@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn() => "Приветствуем вас на нашем сайте");
+
+Route::get('/about', fn() => "Страница о проекте");
+
+Route::get('/onenews', fn() => "Эта страница с одной новостью");
+
+Route::get('/news', fn() => "Это страница с заголовками новостей");
