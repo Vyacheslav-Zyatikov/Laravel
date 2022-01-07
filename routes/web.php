@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\NewsController;
+use \App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn() => "Приветствуем вас на нашем сайте");
+Route::get('/', fn() => view('welcome'));
+
+Route::get('/auth', fn() => view('auth'));
 
 Route::get('/about', fn() => "Страница о проекте");
 
-Route::get('/onenews', fn() => "Эта страница с одной новостью");
+Route::get('/news/{id_category}/{id}', [NewsController::class, 'show']);
 
-Route::get('/news', fn() => "Это страница с заголовками новостей");
+Route::get('/news', [NewsController::class, 'index']);
+
+Route::get('/news/addnews', fn() => view('news.addNews'));
+
+Route::get('/news/category', [CategoryController::class, 'indexCategory']);
+
+Route::get('/news/{id_category}', [CategoryController::class, 'showCategory']);
