@@ -19,7 +19,13 @@
                                 <a href="/auth">Страница авторизации</a>
                             </li>
                             <li>
-                                <a href="/news/addnews">Страница добавления новостей</a>
+                                <a href="{{ route('admin.news.create') }}">Страница добавления новостей</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('user.feedback.index') }}">Оставить отзыв</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('user.request.index') }}">Запрос на выгрузку данных.</a>
                             </li>
                         </ul>
                     </nav>

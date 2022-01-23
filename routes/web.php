@@ -5,6 +5,9 @@ use \App\Http\Controllers\NewsController;
 use \App\Http\Controllers\CategoryController;
 use \App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use \App\Http\Controllers\Admin\NewsController as AdminNewsController;
+use \App\Http\Controllers\User\RequestController as UserRequestController;
+use \App\Http\Controllers\User\FeedbackController as UserFeedbackController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +24,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function (){
     Route::resource('/news', AdminNewsController::class);
 });
 
+Route::group(['prefix' => 'user', 'as' => 'user.'], function (){
+    Route::resource('/request', userRequestController::class);
+    Route::resource('/feedback', userFeedbackController::class);
+});
 
 Route::get('/', fn() => view('welcome'));
 
@@ -31,8 +38,6 @@ Route::get('/about', fn() => "Страница о проекте");
 Route::get('/news/{id_category}/{id}', [NewsController::class, 'show']);
 
 Route::get('/news', [NewsController::class, 'index']);
-
-Route::get('/news/addnews', fn() => view('news.addNews'));
 
 Route::get('/news/category', [CategoryController::class, 'indexCategory']) -> name('indexCategory');
 
