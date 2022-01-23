@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class requestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        return view('user.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        //
     }
 
     /**
@@ -35,14 +35,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
-            'categoryName' => ['required', 'string', 'min:5'],
-            'categoryDescription' => ['string', 'min:5']
-        ]);
+       $request -> validate([
+           'name' => ['required', 'string', 'min:3'],
+           'telephone' => ['string', 'min:10'],
+           'email' => ['string', 'min:5'],
+           'description' => ['string', 'min:4'],
+       ]);
 
         $data = json_encode($request->all());
-        file_put_contents(public_path('news/adminCategoriesData.json'), $data);
-        return view('admin.categories.create', ['status' => 'ok']);
+        file_put_contents(public_path('news/userRequestData.json'), $data);
+        return view('user.index', ['status' => 'ok']);
     }
 
     /**
