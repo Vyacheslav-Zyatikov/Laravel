@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index ()
+    public function index()
     {
-        $news = $this -> getNews();
-
-        return view ('news.index', [
-            'news' => $news
+        $model = new News();
+        $news = $model->getNews();
+        return view('news.index', [
+            'newsList' => $news
         ]);
     }
 
-    public function show (int $id_category, $id)
+    public function show(int $id)
     {
-        $news = $this -> getNewsById($id_category, $id);
+        $model = new News();
 
-        return view ('news.show', [
-            'newsItem' => $news
+        return view('news.show', [
+            'news' => $model->getNewsByID($id)
         ]);
     }
 

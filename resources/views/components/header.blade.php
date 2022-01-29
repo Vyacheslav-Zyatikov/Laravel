@@ -13,7 +13,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="{{ route('indexCategory') }}">Категории новостей</a>
+                                <a href="{{ route('indexCategories') }}">Категории новостей</a>
                             </li>
                             <li>
                                 <a href="/auth">Страница авторизации</a>

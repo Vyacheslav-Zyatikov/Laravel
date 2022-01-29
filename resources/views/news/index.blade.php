@@ -9,22 +9,16 @@
 @endsection
 @section('content')
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        @forelse ($news as $newsItem)
+        @forelse ($newsList as $news)
             <div class="col">
                 <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                         xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail"
-                         preserveaspectratio="xMidYMid slice" role="img" focusable="false"><title>
-                            Placeholder</title>
-                        <rect width="100%" height="100%" fill="#55595c"></rect>
-                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                    </svg>
+                    <img src="{{ $news->image }}" alt="image">
                     <div class="card-body">
                         <div class="card-header">
                             <strong><a
-                                    href="/news/{{ $newsItem['id_category'] }}/{{ $newsItem['id'] }}">{{$newsItem['title']}}</a></strong>
+                                    href="/news/{{ $news->id }}">{{ $news->title }}</a></strong>
                         </div>
-                        <p class="card-text">{{ $newsItem['description'] }}</p>
+                        <p class="card-text">{{ $news->description }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Посмотреть</button>
