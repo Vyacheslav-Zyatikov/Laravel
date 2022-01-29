@@ -1,9 +1,9 @@
 @extends('layouts.main')
-@section('title') {{ $newsItem[0]['title'] }} @endsection
+@section('title') {{ $news->title }} @endsection
 @section('header')
     <div class="row py-lg-5">
         <div class="col-lg-10 col-md-10 mx-auto">
-            <h1 class="font-weight-light">{{ $newsItem[0]['title'] }}</h1>
+            <h1 class="font-weight-light">{{ $news->title }}</h1>
         </div>
     </div>
 @endsection
@@ -19,11 +19,8 @@
                     <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
                 </svg>
                 <div class="card-body">
-                    <p class="card-text">{{ $newsItem[0]['description'] }}</p>
+                    <p class="card-text">{{ $news->description }}</p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Посмотреть</button>
-                        </div>
                         <small class="text-muted">{{ now('Europe/Moscow') }}</small>
                     </div>
                 </div>

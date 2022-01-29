@@ -9,7 +9,7 @@
 @endsection
 @section('content')
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        @forelse ($newsCategory as $newsItem)
+        @forelse ($category as $categoryItem)
             <div class="col">
                 <div class="card shadow-sm">
                     <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
@@ -22,9 +22,10 @@
                     <div class="card-body">
                         <div class="card-header">
                             <strong><a
-                                    href="/news/{{ $newsItem['id_category'] }}/{{ $newsItem['id'] }}">{{$newsItem['title']}}</a></strong>
+                                    href="/news/{{ $categoryItem->id }}">{{ $categoryItem->title }}</a></strong>
                         </div>
-                        <p class="card-text">{{ $newsItem['description'] }}</p>
+                        <p class="card-text">{{ $categoryItem->description }}</p>
+                        <p class="card-text">Категория: {{ $categoryItem->category_id }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Посмотреть</button>

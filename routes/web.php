@@ -35,10 +35,10 @@ Route::get('/auth', fn() => view('auth'));
 
 Route::get('/about', fn() => "Страница о проекте");
 
-Route::get('/news/{id_category}/{id}', [NewsController::class, 'show']);
+Route::get('/news/{id}', [NewsController::class, 'show']);
 
-Route::get('/news', [NewsController::class, 'index']);
+Route::get('/newslist', [NewsController::class, 'index']);
 
-Route::get('/news/category', [CategoryController::class, 'indexCategory']) -> name('indexCategory');
+Route::get('/category', [CategoryController::class, 'index']) -> name('indexCategories');
 
-Route::get('/news/{id_category}', [CategoryController::class, 'showCategory']) -> name('showCategory');
+Route::get('/category/{id}', [CategoryController::class, 'show']) -> name('showCategory');

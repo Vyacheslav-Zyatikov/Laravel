@@ -8,9 +8,9 @@
     </div>
 @endsection
 @section('content')
-    @foreach ($newsCategory as $newsItem)
+    @foreach ($categories as $category)
         <div>
-            <strong><a href="/news/{{ $newsItem['id_category'] }}">{{ $newsItem['title'] }}</a></strong>
+            <strong><a href="/category/{{ $category->id }}">{{ $category->title }}</a></strong>
         </div>
     @endforeach
 @endsection
